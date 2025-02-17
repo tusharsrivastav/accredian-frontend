@@ -4,7 +4,7 @@ import logo from "../assets/logo.svg";
 const Header = () => {
   return (
     <div className="w-full">
-      <div className="flex flex-row max-w-[1360px] justify-between mx-auto my-4 px-16">
+      <div className="flex flex-row max-w-[1360px] justify-between mx-auto my-4 px-4">
         {/* header left content */}
         <div className="flex flex-row align-middle">
           <img src={logo} alt="Accredian logo" />

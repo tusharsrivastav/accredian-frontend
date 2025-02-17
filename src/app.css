@@ -3,10 +3,10 @@
 @import "tailwindcss";
 
 @theme {
-    --blue-light: #DDEAFC;
-    --blue: #1A73E8;
-    --text-black: #1A202C;
-    --white: #ffffff;
+    --color-blue-light: #DDEAFC;
+    --color-blue: #1A73E8;
+    --color-text-black: #1A202C;
+    --color-white: #ffffff;
 
     --font-inter: "Inter", sans-serif;
 }
