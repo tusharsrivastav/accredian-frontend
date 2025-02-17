@@ -10,7 +10,7 @@ const Header = () => {
           <img src={logo} alt="Accredian logo" />
           <button
             type="submit"
-            className="ml-7 h-10 py-2 px-[18px] bg-[var(--blue)] text-white font-inter rounded-md cursor-pointer text-sm hover:opacity-80">
+            className="ml-7 h-10 py-2 px-[18px] bg-blue text-white font-inter rounded-md cursor-pointer text-sm hover:opacity-80">
             Courses
           </button>
         </div>
@@ -19,17 +19,17 @@ const Header = () => {
         <div className="flex flex-row">
           <button
             type="submit"
-            className="mx-4 h-10 text-black-text font-inter rounded-md cursor-pointer text-sm hover:opacity-80">
+            className="mx-4 h-10 text-text-black font-inter rounded-md cursor-pointer text-sm hover:opacity-80">
             Refer & Earn
           </button>
           <button
             type="submit"
-            className="mx-4 h-10 text-black-text font-inter rounded-md cursor-pointer text-sm hover:opacity-80">
+            className="mx-4 h-10 text-text-black font-inter rounded-md cursor-pointer text-sm hover:opacity-80">
             Resources
           </button>
           <button
             type="submit"
-            className="mx-4 h-10 text-black-text font-inter rounded-md cursor-pointer text-sm hover:opacity-80">
+            className="mx-4 h-10 text-text-black font-inter rounded-md cursor-pointer text-sm hover:opacity-80">
             About Us
           </button>
           <button
@@ -39,7 +39,7 @@ const Header = () => {
           </button>
           <button
             type="submit"
-            className="h-10 py-2 px-[18px] bg-[var(--blue)] text-white font-inter rounded-md cursor-pointer text-sm hover:opacity-80">
+            className="h-10 py-2 px-[18px] bg-blue text-white font-inter rounded-md cursor-pointer text-sm hover:opacity-80">
             Try for free
           </button>
         </div>
