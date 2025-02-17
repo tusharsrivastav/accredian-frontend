@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../assets/logo.svg";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDown, faBars, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
   return (
@@ -12,7 +12,7 @@ const Header = () => {
           <img src={logo} alt="Accredian logo" />
           <button
             type="submit"
-            className="ml-7 h-10 py-2 px-[18px] bg-blue text-white font-inter rounded-md cursor-pointer text-sm hover:opacity-80">
+            className="ml-7 h-10 py-2 px-[18px] bg-blue text-white font-inter rounded-md cursor-pointer text-sm hover:opacity-80 hidden md:block">
             Courses
             <FontAwesomeIcon icon={faAngleDown} className="my-auto ml-1" />
           </button>
@@ -20,32 +20,49 @@ const Header = () => {
 
         {/* header right content */}
         <div className="flex flex-row">
+
+          {/* for bigger screens */}
           <button
             type="submit"
-            className="mx-4 h-10 text-text-black font-inter rounded-md cursor-pointer text-sm hover:opacity-80">
+            className="mx-4 h-10 text-text-black font-inter rounded-md cursor-pointer text-sm hover:opacity-80 hidden md:block">
             Refer & Earn
           </button>
           <button
             type="submit"
-            className="mx-4 h-10 text-text-black font-inter rounded-md cursor-pointer text-sm hover:opacity-80">
+            className="mx-4 h-10 text-text-black font-inter rounded-md cursor-pointer text-sm hover:opacity-80 hidden md:block">
             Resources
           </button>
           <button
             type="submit"
-            className="mx-4 h-10 text-text-black font-inter rounded-md cursor-pointer text-sm hover:opacity-80">
+            className="mx-4 h-10 text-text-black font-inter rounded-md cursor-pointer text-sm hover:opacity-80 hidden md:block">
             About Us
           </button>
           <button
             type="submit"
-            className="mx-4 h-10 py-2 px-[18px] bg-gray-300 text-black-text font-inter rounded-md cursor-pointer text-sm hover:bg-gray-400 hover:opacity-80">
+            className="mx-4 h-10 py-2 px-[18px] bg-gray-300 text-black-text font-inter rounded-md cursor-pointer text-sm hover:bg-gray-400 hover:opacity-80 hidden md:block">
             Login
           </button>
           <button
             type="submit"
-            className="h-10 py-2 px-[18px] bg-blue text-white font-inter rounded-md cursor-pointer text-sm hover:opacity-80">
+            className="h-10 py-2 px-[18px] bg-blue text-white font-inter rounded-md cursor-pointer text-sm hover:opacity-80 hidden md:block">
             Try for free
           </button>
+
+          {/* for smaller screens */}
+          <button
+            type="submit"
+            className="h-10 py-2 px-[18px] bg-blue text-white font-inter rounded-md cursor-pointer text-sm hover:opacity-80 block md:hidden">
+            Explore
+            <FontAwesomeIcon icon={faAngleRight} className="my-auto ml-1" />
+          </button>
+          <button
+            type="submit"
+            className="h-10 py-2 px-[18px] cursor-pointer text-xl hover:opacity-80 block md:hidden">
+            <FontAwesomeIcon icon={faBars} className="my-auto ml-1" />
+          </button>
+
         </div>
+
       </div>
     </div>
   );
