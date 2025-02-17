@@ -1,5 +1,7 @@
 import React from "react";
 import logo from "../assets/logo.svg";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 
 const Header = () => {
   return (
@@ -12,6 +14,7 @@ const Header = () => {
             type="submit"
             className="ml-7 h-10 py-2 px-[18px] bg-blue text-white font-inter rounded-md cursor-pointer text-sm hover:opacity-80">
             Courses
+            <FontAwesomeIcon icon={faAngleDown} className="my-auto ml-1" />
           </button>
         </div>
 
