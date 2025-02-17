@@ -13,8 +13,8 @@ const Refer = () => {
           How Do <span className="text-blue">I Refer?</span>
         </h1>
 
-        <img src={referBgHorizontal} alt="" className="hidden md:block" />
-        <img src={referBgVertical} alt="" className="block md:hidden w-72 mx-auto" />
+        <img src={referBgHorizontal} alt="" className="hidden md:block my-8" />
+        <img src={referBgVertical} alt="" className="block md:hidden w-72 mx-auto my-2" />
 
         <button
           type="submit"
