@@ -12,3 +12,7 @@
     --font-inter: "Inter", sans-serif;
     --font-roboto: "Roboto", sans-serif;
 }
+
+.hero-shadow {
+    box-shadow: 0px 4px 65px 1px rgba(0, 7, 43, 0.139);
+}

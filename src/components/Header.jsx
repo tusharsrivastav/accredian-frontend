@@ -39,7 +39,7 @@ const Header = () => {
           </button>
           <button
             type="submit"
-            className="mx-4 h-10 py-2 px-[18px] bg-gray-300 text-black-text font-inter rounded-md cursor-pointer text-sm hover:bg-gray-400 hover:opacity-80 hidden md:block">
+            className="mx-4 h-10 py-2 px-[18px] bg-gray-200 text-black-text font-inter rounded-md cursor-pointer text-sm hover:bg-gray-300 hover:opacity-80 hidden md:block">
             Login
           </button>
           <button
