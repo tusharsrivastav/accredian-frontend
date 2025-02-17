@@ -4,6 +4,7 @@ import Nav from "./components/Nav.jsx";
 import Hero from "./components/Hero.jsx";
 import Footer from "./components/Footer.jsx";
 import Banner from "./components/Banner.jsx";
+import Refer from "./components/Refer.jsx";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Header />
       <Nav />
       <Hero />
+      <Refer />
       <Footer />
     </div>
   );
