@@ -5,6 +5,7 @@ import Hero from "./components/Hero.jsx";
 import Footer from "./components/Footer.jsx";
 import Banner from "./components/Banner.jsx";
 import Refer from "./components/Refer.jsx";
+import Benefits from "./components/Benefits.jsx";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Nav />
       <Hero />
       <Refer />
+      <Benefits />
       <Footer />
     </div>
   );
