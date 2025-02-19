@@ -8,6 +8,12 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 const FormModal = () => {
   const { isOpen, setIsOpen } = useModal();
+
+  const handleCloseModal = () => {
+    setIsOpen(false);
+    setMessage("")
+  }
+
   const [formData, setFormData] = useState({
     referrerName: "",
     referrerEmail: "",
@@ -76,11 +82,10 @@ const FormModal = () => {
             [error.path]: error.msg,
           }));
         });
+      } else{
+        setMessage(error.response?.data?.error || "Something went wrong.");
       }
 
-      console.log(validationErrors);
-
-      setMessage(error.response?.data?.error || "Something went wrong.");
     } finally {
       setLoading(false);
     }
@@ -94,7 +99,7 @@ const FormModal = () => {
         <FontAwesomeIcon
           icon={faX}
           className="absolute top-4 right-4 cursor-pointer text-gray-500 hover:text-gray-700"
-          onClick={() => setIsOpen(false)}
+          onClick={handleCloseModal}
         />
 
         <h2 className="text-xl font-semibold text-center mb-4">
