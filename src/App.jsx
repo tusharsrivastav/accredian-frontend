@@ -6,6 +6,8 @@ import Footer from "./components/Footer.jsx";
 import Banner from "./components/Banner.jsx";
 import Refer from "./components/Refer.jsx";
 import Benefits from "./components/Benefits.jsx";
+import FAQ from "./components/FAQ.jsx";
+import Support from "./components/Support.jsx";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
       <Hero />
       <Refer />
       <Benefits />
+      <FAQ />
+      <Support />
       <Footer />
     </div>
   );

@@ -24,7 +24,7 @@ const Support = () => {
           </div>
         </div>
 
-        <button className="text-blue bg-white rounded-lg w-52 h-11 my-auto font-semibold">
+        <button className="text-blue bg-white rounded-lg w-52 h-11 my-auto font-semibold hover:opacity-85 cursor-pointer">
           Get in touch <FontAwesomeIcon icon={faAngleRight} />
         </button>
       </div>
