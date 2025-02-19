@@ -7,13 +7,13 @@ import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 
 const Benefits = () => {
   return (
-    <div className="w-full px-4">
-      <div className="flex flex-col justify-center py-28">
+    <div className="w-full">
+      <div className="flex flex-col justify-center pt-28">
         <h1 className="text-3xl text-text-black font-roboto text-center">
           What are the <span className="text-blue">Referral Benefits?</span>
         </h1>
 
-        <div className="w-[1360px] mx-auto my-20">
+        <div className="w-[1360px] mx-auto my-16">
           <div className="flex flex-row gap-2 align-middle w-full justify-end">
             <p className="my-auto text-lg font-roboto">Enrolled</p>
             <ToggleSwitch />
