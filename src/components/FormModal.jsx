@@ -3,6 +3,8 @@ import { useModal } from "../context/ModalContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCross, faX } from "@fortawesome/free-solid-svg-icons";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const FormModal = () => {
   const { isOpen, setIsOpen } = useModal();
   const [formData, setFormData] = useState({
