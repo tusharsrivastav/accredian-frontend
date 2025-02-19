@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useModal } from "../context/ModalContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCross, faX } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -12,10 +13,12 @@ const FormModal = () => {
     referrerEmail: "",
     refereeName: "",
     refereeEmail: "",
-    refereePhone: "",
     message: "",
     consent: false,
   });
+
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -25,11 +28,31 @@ const FormModal = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Form Data Submitted:", formData);
-    setIsOpen(0);
-    // Handle form submission (API call, etc.)
+    setLoading(true);
+    setMessage("");
+
+    try {
+      const res = await axios.post(`${API_URL}/api/v1/refer`, formData);
+      setMessage(res.data.message);
+      setFormData({
+        referrerName: "",
+        referrerEmail: "",
+        refereeName: "",
+        refereeEmail: "",
+        message: "",
+        consent: false,
+      });
+
+    setMessage("Referral Submitted")
+    } catch (error) {
+      console.log(error);
+      setMessage(error.response?.data?.error || "Something went wrong.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (!isOpen) return null;
@@ -102,7 +125,9 @@ const FormModal = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium">Friend's Phone (Optional)</label>
+            <label className="block text-sm font-medium">
+              Friend's Phone (Optional)
+            </label>
             <input
               type="tel"
               name="refereePhone"
@@ -114,7 +139,9 @@ const FormModal = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium">Personalized Message (Optional)</label>
+            <label className="block text-sm font-medium">
+              Personalized Message (Optional)
+            </label>
             <textarea
               name="message"
               value={formData.message}
@@ -141,10 +168,12 @@ const FormModal = () => {
           <button
             type="submit"
             className="w-full bg-blue text-white font-semibold py-2 rounded-md hover:bg-blue-700 cursor-pointer"
-          >
-            Send Referral
+            disabled={loading}
+            >
+            {loading ? "Submitting..." : "Send Referral"}
           </button>
         </form>
+        {message && <p className="text-center mt-4">{message}</p>}
       </div>
     </div>
   );
