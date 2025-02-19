@@ -8,16 +8,22 @@ import Refer from "./components/Refer.jsx";
 import Benefits from "./components/Benefits.jsx";
 import FAQ from "./components/FAQ.jsx";
 import Support from "./components/Support.jsx";
+import { useState } from "react";
+import FormModal from "./components/FormModal.jsx";
+import { ModalProvider } from "./context/ModalContext.jsx";
 
 function App() {
   return (
     <div>
-      <Banner />
-      <Header />
-      <Nav />
-      <Hero />
-      <Refer />
-      <Benefits />
+      <ModalProvider>
+        <FormModal />
+        <Banner />
+        <Header />
+        <Nav />
+        <Hero />
+        <Refer />
+        <Benefits />
+      </ModalProvider>
       <FAQ />
       <Support />
       <Footer />
