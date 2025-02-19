@@ -19,6 +19,12 @@ const FormModal = () => {
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const [validationErrors, setValidationErrors] = useState({
+    referrerName: "",
+    referrerEmail: "",
+    refereeName: "",
+    refereeEmail: "",
+  });
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -33,6 +39,12 @@ const FormModal = () => {
     console.log("Form Data Submitted:", formData);
     setLoading(true);
     setMessage("");
+    setValidationErrors({
+      referrerName: "",
+      referrerEmail: "",
+      refereeName: "",
+      refereeEmail: "",
+    });
 
     try {
       const res = await axios.post(`${API_URL}/api/v1/refer`, formData);
@@ -45,10 +57,29 @@ const FormModal = () => {
         message: "",
         consent: false,
       });
+      setValidationErrors({
+        referrerName: "",
+        referrerEmail: "",
+        refereeName: "",
+        refereeEmail: "",
+      });
 
-    setMessage("Referral Submitted")
+      setMessage("Referral Submitted");
     } catch (error) {
       console.log(error);
+
+      if (error.status === 400) {
+        const errors = error.response?.data?.errors;
+        errors.forEach((error) => {
+          setValidationErrors((prevErrors) => ({
+            ...prevErrors,
+            [error.path]: error.msg,
+          }));
+        });
+      }
+
+      console.log(validationErrors);
+
       setMessage(error.response?.data?.error || "Something went wrong.");
     } finally {
       setLoading(false);
@@ -79,10 +110,15 @@ const FormModal = () => {
               name="referrerName"
               value={formData.referrerName}
               onChange={handleChange}
-              placeholder="Enter friend's name"
+              placeholder="Enter your name"
               required
               className="w-full px-3 py-2 border rounded-md"
             />
+            {validationErrors.referrerName && (
+              <p className="text-red-500 text-sm">
+                {validationErrors.referrerName}
+              </p>
+            )}
           </div>
 
           <div>
@@ -92,10 +128,15 @@ const FormModal = () => {
               name="referrerEmail"
               value={formData.referrerEmail}
               onChange={handleChange}
-              placeholder="Enter friend's name"
+              placeholder="Enter your email"
               required
               className="w-full px-3 py-2 border rounded-md"
             />
+            {validationErrors.referrerEmail && (
+              <p className="text-red-500 text-sm">
+                {validationErrors.referrerEmail}
+              </p>
+            )}
           </div>
 
           <div>
@@ -109,6 +150,11 @@ const FormModal = () => {
               required
               className="w-full px-3 py-2 border rounded-md"
             />
+            {validationErrors.refereeName && (
+              <p className="text-red-500 text-sm">
+                {validationErrors.refereeName}
+              </p>
+            )}
           </div>
 
           <div>
@@ -122,20 +168,11 @@ const FormModal = () => {
               required
               className="w-full px-3 py-2 border rounded-md"
             />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium">
-              Friend's Phone (Optional)
-            </label>
-            <input
-              type="tel"
-              name="refereePhone"
-              value={formData.refereePhone}
-              onChange={handleChange}
-              placeholder="Enter phone number"
-              className="w-full px-3 py-2 border rounded-md"
-            />
+            {validationErrors.refereeEmail && (
+              <p className="text-red-500 text-sm">
+                {validationErrors.refereeEmail}
+              </p>
+            )}
           </div>
 
           <div>
@@ -168,12 +205,11 @@ const FormModal = () => {
           <button
             type="submit"
             className="w-full bg-blue text-white font-semibold py-2 rounded-md hover:bg-blue-700 cursor-pointer"
-            disabled={loading}
-            >
+            disabled={loading}>
             {loading ? "Submitting..." : "Send Referral"}
           </button>
         </form>
-        {message && <p className="text-center mt-4">{message}</p>}
+        {message && <p className="text-center mt-4 text-gray-600">{message}</p>}
       </div>
     </div>
   );
