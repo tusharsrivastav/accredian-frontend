@@ -4,8 +4,11 @@ import BenefitsList from "./BenefitsList";
 import BenefitsTable from "./BenefitsTable";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { useModal } from "../context/ModalContext";
 
 const Benefits = () => {
+    const { setIsOpen } = useModal();
+
   return (
     <div className="w-full">
       <div className="flex flex-col justify-center pt-28">
@@ -36,6 +39,7 @@ const Benefits = () => {
 
         <button
           type="submit"
+          onClick={() => setIsOpen(1)}
           className="h-16 w-56 mx-auto bg-blue text-white font-inter rounded-md cursor-pointer text-lg hover:opacity-80">
           Refer Now
         </button>
